@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Required settings
-export TOASTER_HOSTNAME=${TOASTER_HOSTNAME:="vps3.mn-comm.nl"} || exit
-export TOASTER_MAIL_DOMAIN=${TOASTER_MAIL_DOMAIN:="mn-comm.nl"}
+export TOASTER_HOSTNAME=${TOASTER_HOSTNAME:="mail.example.com"} || exit
+export TOASTER_MAIL_DOMAIN=${TOASTER_MAIL_DOMAIN:="example.com"}
 
 # export these in your environment to customize
 export BOURNE_SHELL=${BOURNE_SHELL:="bash"}
