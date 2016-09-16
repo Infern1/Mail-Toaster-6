@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Required settings
-export TOASTER_HOSTNAME=${TOASTER_HOSTNAME:="mail.example.com"} || exit
-export TOASTER_MAIL_DOMAIN=${TOASTER_MAIL_DOMAIN:="example.com"}
+export TOASTER_HOSTNAME=${TOASTER_HOSTNAME:="vps3.mn-comm.nl"} || exit
+export TOASTER_MAIL_DOMAIN=${TOASTER_MAIL_DOMAIN:="mn-comm.nl"}
 
 # export these in your environment to customize
 export BOURNE_SHELL=${BOURNE_SHELL:="bash"}
@@ -13,7 +13,8 @@ export JAIL_ORDERED_LIST=${JAIL_ORDERED_LIST:="dns mysql vpopmail dovecot webmai
 export ZFS_VOL=${ZFS_VOL:="zroot"}
 export ZFS_JAIL_MNT=${ZFS_JAIL_MNT:="/jails"}
 export ZFS_DATA_MNT=${ZFS_DATA_MNT:="/data"}
-export FBSD_MIRROR=${FBSD_MIRROR:="ftp://ftp.freebsd.org"}
+export FBSD_MIRROR=${FBSD_MIRROR:="ftp://ftp.nl.freebsd.org"}
+export TOASTER_MARIADB=${TOASTER_MARIADB:="1"}
 
 # See https://github.com/msimerson/Mail-Toaster-6/wiki/MySQL
 export TOASTER_MYSQL=${TOASTER_MYSQL:="1"}
@@ -189,6 +190,8 @@ get_jail_ip()
 		postgres)     _incr=20 ;;
 		minecraft)    _incr=21 ;;
 		joomla)       _incr=22 ;;
+		php7)         _incr=23 ;;
+		memcached)    _incr=24 ;;
 		stage)        echo "$JAIL_NET_PREFIX.254"; return;;
 	esac
 
@@ -535,6 +538,7 @@ has_data_fs()
 		postgres ) return 0;;
 		haproxy )  return 0;;
 		minecraft ) return 0;;
+		php7 )     return 0;;
 	esac
 
 	return 1
